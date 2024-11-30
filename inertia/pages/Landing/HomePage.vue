@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Head } from '@inertiajs/vue3'
+import { Head, router } from '@inertiajs/vue3'
 </script>
 
 <template>
@@ -32,6 +32,7 @@ import { Head } from '@inertiajs/vue3'
             <h2 class="text-3xl font-bold text-indigo-600">Innovación y Tecnología</h2>
             <p class="mt-4 text-gray-600">¡Cuida de ti mismo con un solo clic!</p>
             <button
+              @click="router.get('/registro')"
               class="mt-6 bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-indigo-700"
             >
               Registrate

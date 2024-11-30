@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Head } from '@inertiajs/vue3'
+import { Head, router } from '@inertiajs/vue3'
 import MdiInstagram from '~/assets/icons/MdiInstagram.vue'
 import UilFacebook from '~/assets/icons/UilFacebook.vue'
 </script>
@@ -13,12 +13,12 @@ import UilFacebook from '~/assets/icons/UilFacebook.vue'
         <button @click="$inertia.visit('/')" class="text-2xl font-bold text-indigo-600">
           MedRemind
         </button>
-        <a
-          href="/"
+        <button
+          @click="router.get('/registro')"
           class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-md shadow-sm hover:bg-indigo-200 cursor-pointer"
         >
           Registrarse
-        </a>
+        </button>
       </div>
     </header>
 
