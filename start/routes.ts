@@ -6,6 +6,7 @@ router.on('/sobre-nosotros').renderInertia('Landing/AboutUsPage')
 
 router
   .group(() => {
-    router.get('/registro', [RegisterController, 'show']).as('register')
+    router.get('/registro', [RegisterController, 'show']).as('register.show')
+    router.post('/register', [RegisterController, 'store']).as('register.store')
   })
   .as('auth')

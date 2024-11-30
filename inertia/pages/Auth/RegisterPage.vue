@@ -1,20 +1,15 @@
 <script setup>
 import { Head, useForm } from '@inertiajs/vue3'
 import { reactive } from 'vue'
+import Swal from 'sweetalert2'
 
-// const form = reactive({
-//   name: '',
-//   email: '',
-//   phone: '',
-//   password: '',
-// })
+defineProps({ errors: Object })
 
 const form = useForm({
-  name: null,
+  fullName: null,
   email: null,
   phone: null,
   password: null,
-  remember: false,
 })
 </script>
 
@@ -26,14 +21,42 @@ const form = useForm({
       <h2 class="text-2xl font-bold text-indigo-600 text-center">Crear Cuenta</h2>
       <p class="text-gray-600 text-center mt-2">Llena los campos para registrarte</p>
 
-      <form @submit.prevent="form.post('/register')" class="mt-6 space-y-4">
+      <form
+        @submit.prevent="
+          form.post('/register', {
+            onError: (errors) => {
+              Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'error',
+                title: 'Error en el formulario',
+                text: errors.message,
+                showConfirmButton: false,
+                timer: 3000,
+              })
+            },
+            onSuccess: () => {
+              Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                title: 'Registro exitoso',
+                text: '¡Bienvenido a la plataforma!',
+                showConfirmButton: false,
+                timer: 3000,
+              })
+            },
+          })
+        "
+        class="mt-6 space-y-4"
+      >
         <!-- Nombre completo -->
         <div>
-          <label for="name" class="block text-gray-700 font-semibold">Nombre Completo</label>
+          <label for="fullName" class="block text-gray-700 font-semibold">Nombre Completo</label>
           <input
-            id="name"
+            id="fullName"
             type="text"
-            v-model="form.name"
+            v-model="form.fullName"
             placeholder="Escribe tu nombre completo"
             class="w-full mt-2 px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
