@@ -6,6 +6,7 @@ import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
 import MedicalRecord from './medical_record.js'
 import type { HasMany, HasOne } from '@adonisjs/lucid/types/relations'
 import Reminder from './reminder.js'
+import Contact from './contact.js'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   uids: ['email'],
@@ -39,4 +40,7 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   @hasMany(() => Reminder)
   declare reminders: HasMany<typeof Reminder>
+
+  @hasMany(() => Contact)
+  declare contacts: HasMany<typeof Contact>
 }
