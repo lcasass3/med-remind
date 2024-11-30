@@ -16,8 +16,22 @@ const form = useForm({
 <template>
   <Head title="Registro" />
 
-  <div class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="bg-white rounded-lg shadow-md p-8 w-full max-w-md">
+  <header class="bg-white shadow-xl z-20 h-1/2">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <button @click="$inertia.visit('/')" class="text-2xl font-bold text-indigo-600">
+        MedRemind
+      </button>
+      <button
+        @click="$inertia.visit('/iniciar-sesion')"
+        class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-md shadow-sm hover:bg-indigo-200"
+      >
+        Iniciar sesion
+      </button>
+    </div>
+  </header>
+
+  <div class="bg-gray-100 flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-md p-8 w-full max-w-md my-8">
       <h2 class="text-2xl font-bold text-indigo-600 text-center">Crear Cuenta</h2>
       <p class="text-gray-600 text-center mt-2">Llena los campos para registrarte</p>
 
