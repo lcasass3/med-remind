@@ -34,7 +34,7 @@ import { Head } from '@inertiajs/vue3'
             <button
               class="mt-6 bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-indigo-700"
             >
-              Saber más...
+              Registrate
             </button>
           </div>
         </div>
